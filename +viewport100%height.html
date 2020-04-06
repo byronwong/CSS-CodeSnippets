@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<style type="text/css">
+
+	/* allows a div to take up 100% of the initial view port and content after it to appear after the fold*/
+	
+	html,body{
+	    height:100%;
+	}
+
+
+	.ca-page-wrapper {
+	      height:100%;
+	}
+
+	.ca-footer{
+
+	}
+
+	.more {
+	  display:block;
+	  position:absolute;
+	  bottom:20px;
+	  text-align:center;
+	}
+</style>
+<section class="ca-page-wrapper">
+    <h2>Title</h2>
+
+    <p>This content takes up 100% of the viewport at the top</p>
+    <a href="http://zellwk.com/blog/viewport-based-typography/">Alternitive method: Using Viewport units</a>
+    <!-- <a href="#" class="more">Learn More</a>-->
+</section>
+<section class="ca-footer">
+    <p>This is the body content, and should appear just after the top section <strong>only when you scroll down</strong>.</p>
+</section>
+
+</body>
+</html>

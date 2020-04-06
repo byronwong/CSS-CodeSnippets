@@ -1,0 +1,24 @@
+/*CASE: depening on the number availble set width*/
+
+.box:first-of-type:last-of-type{ /*first from the bottom and first from the top*/
+	width:100%; /* IF only one exists make width 100%;*/
+} 
+
+.box:nth-of-type(1):nth-last-of-type(2), 
+.box:nth-of-type(2):nth-last-of-type(1) { 
+	/*if first of its type and last of its type two there must be two*/
+	width:50%; /*IF two exist make width 50%; */
+}
+
+.box:nth-of-type(1):nth-last-of-type(3),
+.box:nth-of-type(3):nth-last-of-type(1),
+.box:nth-of-type(2):nth-last-of-type(2) {
+	width: 33.33%;
+}
+
+.box:nth-of-type(1):nth-last-of-type(4),
+.box:nth-of-type(2):nth-last-of-type(3),
+.box:nth-of-type(3):nth-last-of-type(2)
+.box:nth-of-type(4):nth-last-of-type(1) {
+	width:25%;
+}

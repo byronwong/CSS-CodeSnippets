@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		/*http://tympanus.net/codrops/2013/07/14/justified-and-vertically-centered-header-elements/*/
+		@import url(http://fonts.googleapis.com/css?family=Lato:400,700italic);
+		* { 
+			padding: 0; 
+			margin: 0; 
+		}
+		
+		body { 
+			background: #1abc9c; 
+			font-family: 'Lato', sans-serif; text-transform: uppercase; letter-spacing: 1px;
+		}
+
+		header {
+		    text-align: justify;
+		    letter-spacing: 1px;
+		    height: 15em;
+		    padding: 2em 5%;
+		    background: #2c3e50;
+		    color: #fff;
+		}
+		/*
+		Justifying inline or inline-block elements only works if their length is actually bigger than the one of their container i.e. once we have an overflow or line-break. 
+
+		But since this is not the case here, the content is not justified. Here we will leverage the power of pseudo-elements: we can give the pseudo-class ::after a width of 100% and set it to inline-block. This will cause a line-break and our content will get justified like we wanted:
+		*/
+		header::after {
+		    content: '';
+		    display: inline-block;
+		    width: 100%;
+		}
+
+		header > div::before {
+		    content: '';
+		    /*display: inline-block;  
+		    vertical-align: middle;*/
+		    height: 100%;
+		}
+
+		header > div,
+		header > div::before,
+		header h1,
+		header nav {
+		    display: inline-block;
+		    vertical-align: middle;
+		}
+
+		header > div {
+		    width: 50%;
+		    height: 100%;
+		    text-align: left;
+		}
+
+		header > div::before {
+		    content: '';
+		    height: 100%;
+		}
+
+
+		header h1::before {
+			/*Again, we will use a pseudo-element to create the desired environment for our properties to work, a technique by Michał Czernow mentioned in the article Centering the Unknown. So, we will add a pseudo element that has a height of 100% and a vertical-align of middle:
+				https://css-tricks.com/centering-in-the-unknown/
+
+			Note: The 0.25em nudge-back is a little janky. To do it perfectly, you could set font-size: 0; on the parent and then notch the font size back up inside the content container.
+
+			As we have wrapped the H1 with a div we can move this code to the header > div rule
+			*/
+		    /*content: '';
+		    display: inline-block;
+		    vertical-align: middle; 
+		    height: 100%;*/
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<!-- http://tympanus.net/codrops/2013/07/14/justified-and-vertically-centered-header-elements/ -->
+		<div><h1>Super Bad</h1><!--Wrap heading from long titles--></div>
+		<nav><a>First Link</a><a>Second Link</a><a>Third Link</a></nav>
+	</header>
+</body>
+</html>

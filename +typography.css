@@ -1,0 +1,31 @@
+/*CSS Typography*/
+
+/* ========================================
+
+CONTENTS 
+
+1) - Adds a dot divider
+2) - Prevent text wrapping around an image
+
+
+
+======================================== */
+
+
+/* 1) - Adds a dot divider - uses html enitiy*/
+span::before {
+	content: '\2022';
+	display: inline-block;
+	padding: 0 7px 0 7px;
+	font-size: 20px;
+	position: relative;
+	top: 3px;
+}
+
+/* 2) - Prevent text wrapping around an image */ 
+	img {
+		float: left;
+	}
+	p {
+		overflow: hidden
+	}

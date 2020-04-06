@@ -1,0 +1,9 @@
+#corner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 20px;
+  border-style: solid;
+  border-color: #fff #fff #debc08 #debc08;
+}

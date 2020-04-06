@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1> CSS 3 </h1>
+	<section>
+			<h1>Box Sizing</h1>
+					<h2>box-sizing: border-box;</h2><!-- 
+					=============================================
+					NOTE: http://www.w3schools.com/cssref/css3_pr_box-sizing.asp -->
+					<code>Height and WIdth including Max-Height and Max-WIdth take into account padding and border when calculating dimentions.</code>
+					<code>Example 2 100px x 100px boxes</code>
+					<style>
+						.box1 {
+							width:100px;
+							height:100px;
+							background-color:blue;
+							border:5px solid red;
+							padding:8px;
+							margin:8px;
+							color:#fff;
+						}
+						
+						.box2 {
+							width:100px;
+							height:100px;
+							background-color:blue;
+							border:5px solid red;
+							padding:8px;
+							-webkit-box-sizing: border-box;
+							-moz-box-sizing: border-box;
+							-ms-box-sizing: border-box;
+							-o-box-sizing: border-box;
+							margin:8px;
+							color:#fff;
+						}
+					
+					</style>
+					
+					<div class="box1">box1</div>
+					<div class="box2">box2</div>
+					
+					<h2>box-sizing:content-box</h2><!--
+					=============================================
+					&nbsp; 	gives extra spaces
+					-->
+					<code>Example 2 100px x 100px boxes, default box model</code>
+					<style>
+						.box3 {
+							width:100px;
+							height:100px;
+							background-color:blue;
+							border:5px solid red;
+							padding:8px;
+							margin:8px;
+							color:#fff;
+						}
+						
+						.box4 {
+							width:100px;
+							height:100px;
+							background-color:blue;
+							border:5px solid red;
+							padding:8px;
+							-webkit-box-sizing: content-box;
+							-moz-box-sizing: content-box;
+							-ms-box-sizing:content-box;
+							-o-box-sizing: content-box;
+							margin:8px;
+							color:#fff;
+						}
+					
+					</style>
+					
+					<div class="box3">box3</div>
+					<div class="box4">box4</div>
+					
+					
+					<h2>Responsive Design</h2><!--
+					=============================================
+					&nbsp; 	gives extra spaces
+					-->
+					<code>1) To set image to respect native size use max-width:100%</code>
+					<br>
+					<code>2) Creating Intrinsic Ratio</code>
+					<style>
+						.box-wrapper5 {
+							position:relative;
+							height:0;
+							padding-bottom:50%; /*Note: padding as a percentage is always calculated from the width,
+																	so this box will have 50% height of width*/
+						}
+						
+						.box5 {
+							position:absolute;
+							top:0;
+							left:0;
+							height:100%;
+							width:100%;
+							background-color:red;
+						}
+					</style>
+					
+					<div class="box-wrapper5">
+						<div class="box5"></div>
+					</div>
+					<code>
+						Box will maintain ratio with regards to width: padding as a 
+						percentage is always calculated from the width, so this box 
+						will have 50% height of width.
+					</code>
+					
+					<code>3) Compressive images to deal with retina displays (css) or serve are larger image and then scale it down. Also check out picture fill</code>
+	
+
+					<h2>Media Queries</h2><!--
+					=============================================
+					&nbsp; 	gives extra spaces
+					-->
+					<style>
+						@media(min-width:600px){
+							/*styles for 600px and up*/
+						}
+						@media(max-width:38em){
+							/*styles for 38em and down*/
+						}
+					</style>
+					
+					<h2>Other Considerations</h2><!--
+					=============================================
+					-->
+					<code>Touch Target Area: Apple recommends 44px x 44px minimum area</code>
+					<br>
+					<code>Use padding instead of margin</code>
+					<br>
+					<code>Use modernizer to help with hover events on touch, best parctice is to build with no hovers and then build them in for desktop(no-touch)</code>
+					<code>Contrast: remember that with mobile, user will be anywhere, what happenis if the sun is shining on the screen? will they see contrast?</code>
+					<code>Readability</code>
+
+					
+					
+					
+					<h2>SASS</h2><!--
+					=============================================
+					-->
+					
+					
+					
+					
+					
+					
+					<h2>The Basics</h2><!--
+					=============================================
+					-->
+					
+					<head>
+						<meta name="viewport" content="width=divice-width, initial-scale=1.0">
+						
+						<link rel="stylesheet" href="url">
+						<link rel="stylesheet" media="not print" href="link">
+						
+						<!--[if (lte IE 8)&(!IEMobile)]>
+							<link rel="stylesheet" media="screen" href="link">
+						<![endif]-->
+						
+					</head>
+					
+					
+					<code>SASS - SCSS - base.css</code>
+					<style>
+						@-ms-viewport {/* fixes MS snap view in surface tab might be a good idea to put general satament in here as well */
+							width: device-width;
+						}
+						
+						
+						
+						
+					</style>
+					
+					<h2>The Cube</h2><!--
+					============================================= 
+					-->
+					<style>
+					.cube {
+						background-color: #fff;
+						width: 256px;
+						height: 256px;
+						position: relative;
+						top: 10px;
+						left: 10px;
+						border: 1px solid red;
+						box-sizing: border-box;
+					}
+					
+					.cube::before {
+content: '';
+width: 6px;
+height: 255px;
+position: absolute;
+top: 3px;
+right: -6px;
+background-color: #fff;
+-webkit-transform: skewY(55deg);
+-webkit-transform-origin: top;
+-moz-transform: skewY(55deg);
+-moz-transform-origin: top;
+-ms-transform: skewY(55deg);
+-ms-transform-origin: top;
+-o-transform: skewY(55deg);
+-o-transform-origin: top;
+transform: skewY(55deg);
+transform-origin: top;
+box-sizing: border-box;
+border: 1px solid red;
+}
+
+.cube::after {
+content: '';
+width: 255px;
+height: 8px;
+position: absolute;
+bottom: -8px;
+left: -1px;
+background-color: #fff;
+-webkit-transform: skew(35deg);
+-webkit-transform-origin: top;
+-moz-transform: skew(35deg);
+-moz-transform-origin: top;
+-ms-transform: skew(35deg);
+-ms-transform-origin: top;
+-o-transform: skew(35deg);
+-o-transform-origin: top;
+transform: skew(35deg);
+transform-origin: top;
+box-sizing: border-box;
+border: 1px solid red;
+}
+					
+					
+					</style>
+					
+					<div class="cube"></div>
+
+
+	</section>
+
+
+
+</body>
+</html>

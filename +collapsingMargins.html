@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Collapsing Margins</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body {
+			background-color: #333;
+			color: #eee;
+		}
+		a {
+			color: #fff;
+		}
+
+		.container {
+			padding-top: 32px;
+		}
+
+		/*Example 1*/
+		.ex1-h1 {
+			margin: 0 0 25px 0;
+			background: #cfc;
+			color: #333;
+		}
+		.ex1-p {
+			margin: 20px 0 0 0;
+			background: #cf9;
+			color: #333;
+		}
+
+		/*Example 2*/
+		.ex2-h1 {
+			margin: 0 0 25px 0;
+			background: #cfc;
+			color: #333;
+		}
+		.ex2-p {
+			margin: -20px 0 0 0;
+			background: #cf9;
+			color: #333;
+		}
+
+		/* Example 3*/
+		.ex3-h1 {
+			margin: 0;
+			background: #cff;
+			color: #333;
+		}
+		.ex3-div {
+			margin: 40px 0 25px 0;
+			background: #cfc;
+			/*border-top: 1px solid #000;*/
+			/*padding-top: 1px;*/
+		}
+		.ex3-p {
+			margin: 20px 0 0 0;
+			background: #cf9;
+			color: #333;
+		}
+
+		/*Example 4*/
+		.box {
+			margin: 10px;
+
+			/*margin: 9px;*/
+  			/*padding: 1px;*/
+
+		}
+		.a {
+			background: #777;
+		}
+		.b {
+			background: #999;
+		}
+		.c {
+			background: #bbb;
+		}
+		.d {
+			background: #ddd;
+		}
+		.e {
+			background: #fff;
+		}
+
+		.ex4-h1 {
+			color: #333;
+			background: #cf9;
+		}
+		.ex4-p {
+			color: #333;
+			background: #cf9;
+		}
+
+
+	</style>
+</head>
+<body>
+	<h1>Collapsing Margins</h1>
+	<p>
+		<a href="http://www.sitepoint.com/web-foundations/collapsing-margins/">
+			http://www.sitepoint.com/web-foundations/collapsing-margins/
+		</a>
+		<span>NOTE: for floated/ parent items use can use the: overflow: hidden/auto </span>
+	</p>
+	<div class="container">
+		<h1 class="ex1-h1">Example 1</h1>
+		<p class="ex1-p">Notice the gap between the paragraph and the H1 title. Margins collapse between adjacent elements. In simple terms, this means that for adjacent vertical block-level elements in the normal document flow, only the margin of the element with the largest margin value will be honored, while the margin of the element with the smaller margin value will be collapsed to zero. If, for example, one element has a 25px bottom margin and the element immediately underneath it has a 20px top margin, only the 25px bottom margin will be enforced, and the elements will remain at a distance of 25px from each other. They will not be 45px (25+20) apart, as might be expected</p>
+
+	</div>
+	<div  class="container">
+		<h1 class="ex2-h1">Example 2</h1>
+		<p class="ex2-p">The bottom margin of the h1 element is a positive number (25px), and the top margin of the p element is a negative number (-20px). In this situation, the two numbers are added together to calculate the final margin: 25px + (-20px) = 5px.</p>
+	</div>
+
+	<div class="container">
+		<h1 class="ex3-h1">Example 3</h1>
+		<div class="ex3-div">
+			<p class="ex3-p">In the style sheet above, you can see that a top margin value is declared for the p element, and in the code excerpt below, you can see that the p element is a child of the div element: <br><br>
+			You may have expected that the paragraph would be located 60px from the heading, since the div element has a margin-top of 40px and there is a further 20px margin-top on the p element. You may also have expected that 20px of the background color of the div element would show above the paragraph. This does not happen because, as you can see in Figure 2, the margins collapse together to form one margin. Only the largest margin applies (as in the case of adjoining blocks), as we’ve already seen. <br> <br>
+			In fact we would get the same result if our div element had no top margin and the p element had a 40px margin-top. The 40px margin-top on the p element effectively becomes the top margin of the div element, and pushes the div down the page by 40px, leaving the p element nesting snugly at the top. No background would be visible on the div element above the paragraph.<br><br>
+			In order for the top margins of both elements to be displayed, and for the background of the div element to be revealed above the p element, there would need to be a border or padding that would stop the margins collapsing. (can also use 1px top padding)
+			</p>
+		</div>
+		
+	</div>
+
+	<div class="container">
+		<div class="box a">
+			<div class="box b">				
+				<div class="box c">
+					<div class="box d">
+						<div class="box e">
+							<h1 class="ex4-h1">Example 4</h1>
+							<p class="ex4-p">
+								As you can see in this example, the effect of our CSS is quite dramatic: all the vertical margins have collapsed to form a single, 10px margin. Unlike the horizontal margin example, where all the margins were visible, the vertical margins show no such colors at all, thanks to the background-color that has been applied to each element. The whole block will be positioned 10px from other in-flow elements on the page, but each nested block will collapse its margins into a single margin.<br><br>
+								As discussed earlier, the simplest way to stop the margin collapse from occurring is to add padding or borders to each element. If we wanted 10px margins on each element we could simply use a 9px margin and 1px of padding to get the result we wanted:
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
